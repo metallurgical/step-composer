@@ -16,15 +16,15 @@ Installing composer, load custom namespace/class
 2) Suppose we have folder directory like below :
 
     ProjectName/
-    |--/src
+    |src/
     |----/Db.php      -------> **this is our class located**
     |----/Api.php     -------> **this is our class located**
-    vendor/
-    |--/composer
-    |----/..list of file inside this folder...
-    |--autoload.php   -------> **autoload file**
-    composer.json     -------> **need to defined psr4 here**
-    index.php         -------> **our main file to run later on**
+    |vendor/
+    |----/composer
+    |------/..list of file inside this folder...
+    |----autoload.php   -------> **autoload file**
+    |composer.json     -------> **need to defined psr4 here**
+    |index.php         -------> **our main file to run later on**
     
 3) Declare `namespace` inside both file Db.php and Api.php, give name `Emi` just for this example :
   - **Db.php** may contains this :
