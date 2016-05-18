@@ -8,8 +8,25 @@ Installing composer, load custom namespace/class
 ------------
 - Skip this for now
 
+![alt text][logo_main]  Add our custom class using standard autoload(same like require declarative) - **not recommended**
+------------
+Make sure you have `composer.json` file in your root folder, if you did't have those file, refer Composer Install section above.
+Open up composer.json file and write down below code :
 
-![alt text][logo_main]  Add our custom class/namespace using PSR4 standard
+    {
+      "autoload": {
+      "classmap": [
+        "path/to/FirstClass.php",
+        "path/to/SecondClass.php"
+      ]
+    }
+   }
+ 
+ 
+And finally update autoloader using this command : `composer dump-autoload -o`
+
+
+![alt text][logo_main]  Add our custom class/namespace using PSR4 standard - **recommended**
 ------------
 1) Make sure you have `composer.json` file in your root folder, if you did't have those file, refer Composer Install section above.
 
