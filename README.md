@@ -77,11 +77,56 @@ require_once __DIR__ . '/vendor/autoload.php'; // here we load autoload class fi
 use Emi\Connection;      // Here we reference our code. Emi = is namespace name, Connection = is a class name
 use Emi\Api;             // Here we reference our code. Emi = is namespace name, Api = is a class name
 
-$m = new Connection();
-echo $m->hey();
+$C = new Connection();
+echo $C->hey();
 
-$mn = new Api();
-echo $mn->hey();
+$A = new Api();
+echo $A->hey();
 ```
 
 7) Done!
+
+8) Oh wait, what if the `src` folder having complex folder structure as example `Db.php` are located inside their own folder eg : `src/Database/Db.php`, like below structure :
+
+    ProjectName/
+    |src/
+    |----/Database
+    |-------/Db.php   -------> **this is our class located**
+    |----/Api.php     -------> **this is our class located**
+    |vendor/
+    |----/composer
+    |------/..list of file inside this folder...
+    |----autoload.php   -------> **autoload file**
+    |composer.json     -------> **need to defined psr4 here**
+    |index.php         -------> **our main file to run later on**
+
+9) So, in order to make this available again, we need to update a lil bit inside `Db.php` file, write down below code :
+
+```Php
+<?php
+namespace Emi\Database;    // we just only need to add parent folder of Db.php located
+class Connection {
+    function hey(){
+	return 'a';
+    }
+}
+```
+
+So in index.php file now should be like this :
+
+```Php
+<?php
+require_once __DIR__ . '/vendor/autoload.php'; // here we load autoload class file from vendor folder
+                                               // must be note that all files inside src folder already required by composer
+
+use Emi\Database\Connection;      // ******* change to this, just add respective folder name
+use Emi\Api;                      // Here we reference our code. Emi = is namespace name, Api = is a class name
+
+$C = new Connection();
+echo $C->hey();
+
+$A = new Api();
+echo $A->hey();
+```
+
+And finally we update again the cache using either this `composer dumpautoload -o` or `composer dump-autoload`
