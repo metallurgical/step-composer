@@ -23,7 +23,7 @@ Open up composer.json file and write down below code :
     }
  
  
-And finally update autoloader using this command : `composer dump-autoload -o`, and just call/instantiated directly class from defined classmap above.
+And finally update autoloader using this command : `composer update`, and just call/instantiated directly class from defined classmap above.
 
 
 ![alt text][logo_main]  Add our custom class/namespace using PSR4 standard - recommended
@@ -80,8 +80,7 @@ And finally update autoloader using this command : `composer dump-autoload -o`, 
     }
    
 5) After finish, run this command to ensure composer update the autoload and cache : 
- - `composer dumpautoload -o` or
- - `composer dump-autoload`
+ - `composer update`
  
 6) Finally, we can create new instance of our Db and Api class directly by using the keyword `use`, before that, we need to load `autoload.php` file from vendor folder. Open up `index.php` from your root directory and write down below code :
 
@@ -146,4 +145,12 @@ $A = new Api();
 echo $A->hey();
 ```
 
-And finally we update again the cache using either this `composer dumpautoload -o` or `composer dump-autoload`
+And finally we update again the cache using either this `composer update`
+
+![alt text][logo_main]  Performance. Must read!!
+------------
+One thing worth noting is that for large projects the overhead of using the Composer autoloader can become noticeable. This is partly due to the overhead incurred with a lot of file_exists() calls. One way to get around this is to convert the autoloader to use a class map using the dumpautoload command:
+
+`composer dumpautoload -o`
+
+This will create a map of all namespaces to their respective files. The downside to this approach is that every time new classes are introduced the class map would need to be re-created, as well as any time the composer install/update commands are ran
