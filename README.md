@@ -149,7 +149,7 @@ And finally we update again the cache using either this `composer update`
 
 ![alt text][logo_main]  Performance. Must read!!
 ------------
-One thing worth noting is that for large projects the overhead of using the Composer autoloader can become noticeable. This is partly due to the overhead incurred with a lot of file_exists() calls. One way to get around this is to convert the autoloader to use a class map using the dumpautoload command:
+One thing worth noting is that for large projects the overhead of using the Composer autoloader can become noticeable. This is partly due to the overhead incurred with a lot of file_exists() calls. One way to get around this is to convert the autoloader to use a class map(will create an array on this file `autoload_classmap.php`) using the dumpautoload command:
 
 `composer dumpautoload -o`
 
