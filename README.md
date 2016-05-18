@@ -11,7 +11,7 @@ Installing composer, load custom namespace/class
 
 ![alt text][logo_main]  Add our custom class/namespace using PSR4 standard
 ------------
-1) Make sure you have composer.json file in your root folder, if you did't have those file, refer Composer Install section above.
+1) Make sure you have `composer.json` file in your root folder, if you did't have those file, refer Composer Install section above.
 
 2) Suppose we have folder directory like below :
 
@@ -26,7 +26,7 @@ Installing composer, load custom namespace/class
     |composer.json     -------> **need to defined psr4 here**
     |index.php         -------> **our main file to run later on**
     
-3) Declare `namespace` inside both file Db.php and Api.php, give name `Emi` just for this example :
+3) Declare `namespace` inside both file `Db.php` and `Api.php`, give name `Emi` just for this example :
   - **Db.php** may contains this :
     
     ```Php
