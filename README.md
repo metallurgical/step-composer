@@ -23,10 +23,10 @@ Open up composer.json file and write down below code :
     }
  
  
-And finally update autoloader using this command : `composer dump-autoload -o`
+And finally update autoloader using this command : `composer dump-autoload -o`, and just call/instantiated directly class from defined classmap above.
 
 
-![alt text][logo_main]  Add our custom class/namespace using PSR4 standard - **recommended**
+![alt text][logo_main]  Add our custom class/namespace using PSR4 standard - recommended
 ------------
 1) Make sure you have `composer.json` file in your root folder, if you did't have those file, refer Composer Install section above.
 
